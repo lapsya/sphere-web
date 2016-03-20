@@ -80,7 +80,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': '/etc/mysql/my.cnf',
             'init_command': 'SET default_storage_engine=INNODB',
         },
         'NAME': 'webdb',
