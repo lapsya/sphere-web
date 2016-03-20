@@ -1,1 +1,1 @@
-# sphere-web
+# My mail.ru open course project
