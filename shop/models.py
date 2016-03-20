@@ -23,22 +23,22 @@ class Item(models.Model):
     )
 
     def __unicode__(self):
-        return 'Item ' + self.title
+        return self.title
 
 class Category(models.Model):
     title = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return 'Category ' + self.title
+        return self.title
 
 class Tag(models.Model):
     title = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return 'Tag ' + self.title
+        return self.title
 
 class Vendor(models.Model):
     title = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return 'Vendor ' + self.title
+        return self.title
