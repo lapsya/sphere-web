@@ -1,7 +1,6 @@
 from django.db import models
 
 
-
 class Item(models.Model):
     title = models.CharField(max_length=255)
     price = models.IntegerField()
@@ -25,11 +24,13 @@ class Item(models.Model):
     def __str__(self):
         return self.title
 
+
 class Category(models.Model):
     title = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
+
 
 class Tag(models.Model):
     title = models.CharField(max_length=255)
@@ -37,11 +38,13 @@ class Tag(models.Model):
     def __str__(self):
         return self.title
 
+
 class Vendor(models.Model):
     title = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
+
 
 class Order(models.Model):
     title = models.CharField(
@@ -79,6 +82,7 @@ class Order(models.Model):
     def __str__(self):
         return self.title
 
+
 class ItemOrder(models.Model):
     item = models.ForeignKey(
         'Item',
@@ -90,11 +94,13 @@ class ItemOrder(models.Model):
     )
     item_amount = models.IntegerField()
 
+
 class ShippingMethod(models.Model):
     title = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
+
 
 class Cart(models.Model):
     price = models.IntegerField()
@@ -103,6 +109,7 @@ class Cart(models.Model):
         'Item',
         through='CartItem',
     )
+
 
 class CartItem(models.Model):
     cart = models.ForeignKey(
