@@ -144,7 +144,7 @@ class ShopUser(User):
     birth_date = models.DateField(default=timezone.now)
     address = models.TextField(default='')
     bill = models.FloatField(default=0)
-    discount = models.IntegerField()
+    discount = models.IntegerField(default=0)
     cart = models.ForeignKey(
         'Cart',
         on_delete=models.CASCADE,
