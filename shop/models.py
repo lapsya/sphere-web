@@ -121,3 +121,29 @@ class CartItem(models.Model):
         on_delete=models.CASCADE,
     )
     item_amount = models.IntegerField()
+
+
+class Guest(models.AnonymousUser):
+    cart = models.ForeignKey(
+        'Cart',
+        on_delete=models.CASCADE,
+    )
+
+
+class ShopUser(models.AbstractBaseUser):
+    username = models.CharField(max_length=40, unique=True)
+    USERNAME_FIELD = 'username'
+    bill = models.IntegerField()
+    discount = models.IntegerField()
+    cart = models.ForeignKey(
+        'Cart',
+        on_delete=models.CASCADE,
+    )
+    laid_off = models.ForeignKey(
+        'Cart',
+        on_delete=models.SET_NULL,
+        null=True,
+    )
+    orders = models.ManyToManyField(
+        'Order',
+    )
