@@ -140,8 +140,6 @@ class Guest(AnonymousUser):
 
 
 class ShopUser(AbstractBaseUser):
-    username = models.CharField(max_length=40, unique=True)
-    USERNAME_FIELD = 'username'
     bill = models.IntegerField()
     discount = models.IntegerField()
     cart = models.ForeignKey(
@@ -158,3 +156,6 @@ class ShopUser(AbstractBaseUser):
     orders = models.ManyToManyField(
         'Order',
     )
+
+    def __str__(self):
+        return self.title
