@@ -149,16 +149,19 @@ class ShopUser(User):
         'Cart',
         on_delete=models.SET_NULL,
         null=True,
+        blank=True,
         related_name='user_cart',
     )
     laid_off = models.ForeignKey(
         'Cart',
         on_delete=models.SET_NULL,
         null=True,
+        blank=True,
         related_name='user_laid_off_cart',
     )
     orders = models.ManyToManyField(
         'Order',
+        blank=True,
     )
 
     def __str__(self):
