@@ -147,7 +147,8 @@ class ShopUser(User):
     discount = models.IntegerField(default=0)
     cart = models.ForeignKey(
         'Cart',
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        null=True,
         related_name='user_cart',
     )
     laid_off = models.ForeignKey(
