@@ -31,6 +31,9 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
 
 class Tag(models.Model):
     title = models.CharField(max_length=255)
@@ -82,6 +85,9 @@ class Order(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['-status_timedate']
+
 
 class ItemOrder(models.Model):
     item = models.ForeignKey(
@@ -100,6 +106,9 @@ class ShippingMethod(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Shipping method'
 
 
 class Cart(models.Model):
