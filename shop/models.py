@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import AnonymousUser, AbstractBaseUser
 
 class Item(models.Model):
     title = models.CharField(max_length=255)
@@ -123,14 +123,14 @@ class CartItem(models.Model):
     item_amount = models.IntegerField()
 
 
-class Guest(models.AnonymousUser):
+class Guest(AnonymousUser):
     cart = models.ForeignKey(
         'Cart',
         on_delete=models.CASCADE,
     )
 
 
-class ShopUser(models.AbstractBaseUser):
+class ShopUser(AbstractBaseUser):
     username = models.CharField(max_length=40, unique=True)
     USERNAME_FIELD = 'username'
     bill = models.IntegerField()
@@ -138,11 +138,13 @@ class ShopUser(models.AbstractBaseUser):
     cart = models.ForeignKey(
         'Cart',
         on_delete=models.CASCADE,
+        related_name='user_cart',
     )
     laid_off = models.ForeignKey(
         'Cart',
         on_delete=models.SET_NULL,
         null=True,
+        related_name='user_laid_off_cart',
     )
     orders = models.ManyToManyField(
         'Order',
