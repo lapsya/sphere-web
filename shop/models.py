@@ -165,4 +165,4 @@ class ShopUser(User):
     )
 
     def __str__(self):
-        return self.title
+        return 'User ' + self.username
