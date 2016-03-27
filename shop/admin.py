@@ -7,6 +7,8 @@ admin.site.register(Category)
 admin.site.register(Tag)
 admin.site.register(Vendor)
 admin.site.register(ShippingMethod)
+admin.site.register(Order)
+admin.site.register(Cart)
 #admin.site.register(ShopUser)
 
 @admin.register(ShopUser)
