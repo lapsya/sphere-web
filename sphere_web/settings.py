@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,13 +23,15 @@ SECRET_KEY = 'lljyba8i-d+$%28%y=isw1e&d*^$n&rbtjo!0i6+rf#=$ud!^1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
+# Custom User model
+AUTH_USER_MODEL = 'shop.ShopUser'
 
 # Application definition
 
 INSTALLED_APPS = [
+#    'shop',
     'shop.apps.ShopConfig',
     'flat',
     'django.contrib.admin',
@@ -82,7 +83,7 @@ DATABASES = {
         'OPTIONS': {
             'init_command': 'SET default_storage_engine=INNODB',
         },
-        'NAME': 'webdb',
+        'NAME': 'cmcweb',
         'USER': 'meredith',
         'PASSWORD': 'mysqlpass',
         'HOST': '127.0.0.1',

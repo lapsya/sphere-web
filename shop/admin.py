@@ -7,9 +7,10 @@ admin.site.register(Category)
 admin.site.register(Tag)
 admin.site.register(Vendor)
 admin.site.register(ShippingMethod)
-#admin.site.register(ShopUser)
+admin.site.register(Order)
+admin.site.register(Cart)
 
-@admin.register(ShopUser)
+#@admin.register(ShopUser)
 class MyUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
@@ -24,3 +25,5 @@ class MyUserAdmin(UserAdmin):
         if not obj:
             return self.add_fieldsets
         return super(UserAdmin, self).get_fieldsets(request, obj)
+
+admin.site.register(ShopUser, MyUserAdmin)

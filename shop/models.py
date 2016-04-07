@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AnonymousUser, User
+from django.contrib.auth.models import AnonymousUser, AbstractUser
 from django.utils import timezone
 
 class Item(models.Model):
@@ -140,7 +140,7 @@ class Guest(AnonymousUser):
     )
 
 
-class ShopUser(User):
+class ShopUser(AbstractUser):
     birth_date = models.DateField(default=timezone.now)
     address = models.TextField(default='')
     bill = models.FloatField(default=0)
