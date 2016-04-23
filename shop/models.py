@@ -7,7 +7,7 @@ class Item(models.Model):
     price = models.IntegerField()
     rating = models.FloatField()
     amount = models.IntegerField()
-    description = models.TextField()
+    description = models.TextField(default='')
     category = models.ForeignKey(
         'Category',
         on_delete=models.SET_NULL,
@@ -20,6 +20,7 @@ class Item(models.Model):
     )
     tag = models.ManyToManyField(
         'Tag',
+        blank=True,
     )
 
     def __str__(self):
@@ -55,7 +56,7 @@ class Order(models.Model):
         max_length=255,
         default='Unnamed order',
     )
-    price = models.IntegerField()
+    #price = models.IntegerField()
     ship_method = models.ForeignKey(
         'ShippingMethod',
         on_delete=models.SET_NULL,
@@ -81,6 +82,7 @@ class Order(models.Model):
     items = models.ManyToManyField(
         'Item',
         through='ItemOrder',
+        blank=True,
     )
 
     def __str__(self):
@@ -118,6 +120,7 @@ class Cart(models.Model):
     items = models.ManyToManyField(
         'Item',
         through='CartItem',
+        blank=True
     )
 
 
